@@ -11,8 +11,8 @@ module.exports = {
   included(app) {
     this._super.included(app);
 
-    app.import('vendor/ember-pell/pell.min.css');
-    app.import('vendor/ember-pell/pell.min.js', {
+    app.import('vendor/ember-pell/src/pell.css');
+    app.import('vendor/ember-pell/dist/pell.min.js', {
       using: [
         { transformation: 'amd', as: 'pell' }
       ]
@@ -32,7 +32,7 @@ module.exports = {
 
     trees.push(new Funnel(this.pellPath(), {
       destDir: 'ember-pell',
-      files: ['pell.min.js', 'pell.min.css']
+      files: ['dist/pell.min.js', 'src/pell.css']
     }));
 
     return mergeTrees(trees);
